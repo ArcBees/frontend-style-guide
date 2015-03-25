@@ -14,12 +14,13 @@ We aim at producing something that will be able to grow and scale, while keeping
 ## CSS
 
 - [CSS Structure and Rules](css-rules.md)
- - Single Responsibility Principle
  - Spacing
  - Formatting
  - Units
  - Property Ordering
  - Selectors
+ - Single Responsibility Principle
+ - Variables
  - Comments
  - Media-queries
  - Others

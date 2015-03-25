@@ -1,9 +1,5 @@
 # CSS Structure and Rules
 
-## Single Responsibility Principle
-
-Each class must serve a single responsibility, decomposing big blocks into small pieces that do only one thing, but do it well. Those pieces can then be reused into other elements. 
-
 ## Spacing
 
 - Soft tabs, 4 spaces
@@ -125,6 +121,68 @@ Note that a single underscore `_` can also have the purpose of delimiting words 
 ### Specificity
 
 Keep CSS specificity as low as possible.
+
+## Single Responsibility Principle
+
+Each class must serve a single responsibility, decomposing big blocks into small pieces that do only one thing, but do it well. Those pieces can then be reused into other elements. 
+
+Every time you see a reapetable pattern between multiple classes, it should be splitted into a new class that will handle this pattern only.
+
+*Bad example:*
+```
+<a class="card">Simple card #1</a>
+<a class="card">Simple card #2</a>
+<a class="ad_spot">This is an ad spot!</a>
+
+<style>
+	.card {
+		background-color: #fff;
+
+		display: block;
+		width: 300px;
+		padding: 20px;
+
+		border-radius: 5px;
+	}
+
+	.ad_spot {
+		background-color: #ccc;
+
+		display: block;
+		width: 300px;
+		padding: 20px;
+	}
+</style>
+```
+
+This is bad, because `.card` and `.ad_spot` are sharing common styling. If we need to change the `width` of a card, we will also need to change it inside the ad spot CSS.
+
+*Good example:*
+```
+<a class="box card">Simple card #1</a>
+<a class="box card">Simple card #2</a>
+<a class="box ad_spot">This is an ad spot!</a>
+
+<style>
+	.box {
+		display: block;
+		width: 300px;
+		padding: 20px;
+	}
+
+	.card {
+		background-color: #fff;
+
+		border-radius: 5px;
+	}
+
+	.ad_spot {
+		background-color: #ccc;
+	}
+</style>
+```
+
+We now see that the `.box` class is reusable for any items. As this is only doing one thing (setting the display), we can combine it with other classes to build something more complex.
 
 ## Variables
 
