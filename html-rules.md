@@ -20,4 +20,4 @@
 
 It is not a good idead to bind your CSS and your JS onto the same class. By doing so means you can't have (or remove) one without (removing) the other. It is much cleaner, much more transparent, and much more maintainable to bind your JS onto specific classes.
 
-Prefix these classes with `js_` : `<a class="js_toggler">`
+Prefix these classes with `js-` : `<a class="js-toggler">`

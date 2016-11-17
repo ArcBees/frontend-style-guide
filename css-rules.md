@@ -24,9 +24,9 @@
 Large blocks of single declarations can use a one-line format.
 
 ```
-.icon_arrow:before {content: "\e602";}
-.icon_calendar:before {content: "\e603";}
-.icon_clock:before {content: "\e604";}
+.icon_arrow::before { content: "\e602"; }
+.icon_calendar::before { content: "\e603"; }
+.icon_clock::before { content: "\e604"; }
 ```
 
 Long, comma-separated property values, such as collections of gradients or shadows, can be arranged across multiple lines. It improves readability and produces more useful diffs.
@@ -43,7 +43,7 @@ Long, comma-separated property values, such as collections of gradients or shado
 
 - Only use lowercase (except for comments)
 - Use shorthand hex values, when possible. Use `#fff` instead of `#ffffff`
-- Prefer double quotes `"..."` around values
+- Use double quotes `"..."` around values
 
 ## Units
 
@@ -54,18 +54,20 @@ Long, comma-separated property values, such as collections of gradients or shado
 
 Properties are grouped by categories. Each category is separated with a blank line.
 
+- Content
+ - `content`
 - Typography, color and background
- - `content` `color` `font` `background` `line-height` `text-decoration` `text-align` `letter-spacing` `word-spacing` ...
+ - `background` `color` `filter` `font` `letter` `line-height` `text` `word`
 - Display
- - `display` `visibility` `overflow` `box-sizing` `width` `height` `padding` `margin` `border`
+ - `border` `box-sizing` `display` `height` `margin` `max-height` `min-height` `outline` `overflow` `padding` `vertical-align` `visibility` `width`
+- Flex (`display: flex` must be first of block)
+ - `align` `flex` `justify-content`
 - Positioning
- - `float` `position` `z-index` `top` `right` `bottom` `left` `vertical-align`
+ - `bottom` `float` `left` `position` `right` `top` `z-index`
 - Visual and animation
- - `border-radius` `box-shadow` `animation` `transform` ...
+ - `animation` `box-shadow` `opacity` `transform`
 - Others
- - `list-style` `table-style` `cursor` `opacity` `outline` ... 
-- Mixins
- - `@mixinName(param)`
+ - `appearance` `list-style` `table-style` `cursor` ...
 
 ```
 .element {
@@ -89,34 +91,34 @@ Properties are grouped by categories. Each category is separated with a blank li
 ## Selectors
 
 - Reduce location depedency
-- Increase portability. Use `.widget_link` instead of `.widget > a`
-- Avoid over-qualified selectors. Use `.widget_link` instead of `a.widget_link`
-- JS hooks prefixed with `js_` : `.js_menu` 
-- State prefixed with `is_` : `.is_open`
+- Increase portability. Use `.widget__link` instead of `.widget > a`
+- Avoid over-qualified selectors. Use `.widget__link` instead of `a.widget__link`
+- JS hooks prefixed with `js-` : `.js-menu` 
+- State prefixed with `is-` : `.is-open`
 - Try to avoid key selectors (the right-most part of a selector) that are too large, like `.foo div`. When it's impossible to avoid, try to use a child selector (e.g. `.foo > div`). This will limit the browser to look for only one level higher in the DOM
 
 ### Naming Convention
 
-Class names should be human readable, communicating useful information. Use structural and purposeful names over presentational ones (e.g. `.important` instead of `.red`). Be short but as specific as possible. Go for `.siteLogo` instead of `.logo`.
+Class names should be human readable, communicating useful information. Use structural and purposeful names over presentational ones (e.g. `.important` instead of `.red`). Be short but as specific as possible. Go for `.site-logo` instead of `.logo`.
 
 #### BEM
 
 We use a version of the BEM technique to add intent and reletionship to classnames :
 
 - `.block`
-- `.block_element`
-- `.block__modifier`
+- `.block__element`
+- `.block--modifier`
 
 ```
 <div class="post">
-	<h2 class="post_title">My post!</h2>
-	<img class="post_image post_image__large" />
-	<img class="post_image" />
-	<img class="post_image" />
+	<h2 class="post__title">My post!</h2>
+	<img class="post__image post__image--large" />
+	<img class="post__image" />
+	<img class="post__image" />
 </div>
 ```
 
-The name of a block, element or modifier consisting of multiple words will use the camelCase convention. A block named `primary nav` would become `.primaryNav`.
+The name of a block, element or modifier consisting of multiple words will use the `-` delimiter. A block named `primary nav` would become `.primary-nav`.
 
 ### Specificity
 
@@ -132,7 +134,7 @@ Every time you see a repeatable pattern between multiple classes, it should be s
 ```
 <a class="card">Simple card #1</a>
 <a class="card">Simple card #2</a>
-<a class="adSpot">This is an ad spot!</a>
+<a class="ad-spot">This is an ad spot!</a>
 
 <style>
 	.card {
@@ -145,7 +147,7 @@ Every time you see a repeatable pattern between multiple classes, it should be s
 		border-radius: 5px;
 	}
 
-	.adSpot {
+	.ad-spot {
 		background-color: #ccc;
 
 		display: block;
@@ -161,7 +163,7 @@ This is bad, because `.card` and `.adSpot` are sharing common styling. If we nee
 ```
 <a class="box card">Simple card #1</a>
 <a class="box card">Simple card #2</a>
-<a class="box adSpot">This is an ad spot!</a>
+<a class="box ad-spot">This is an ad spot!</a>
 
 <style>
 	.box {
@@ -176,7 +178,7 @@ This is bad, because `.card` and `.adSpot` are sharing common styling. If we nee
 		border-radius: 5px;
 	}
 
-	.adSpot {
+	.ad-spot {
 		background-color: #ccc;
 	}
 </style>
@@ -188,22 +190,23 @@ We now see that the `.box` class is reusable for any items. As this is only doin
 
 ### Types
 
-- *Color*, starting with `C_`
-- *Font*, starting with `F_`
-- *Size*, starting with `S_`
+- *Color*, starting with `c-`
+- *Font*, starting with `f-`
+- *Size*, starting with `s-`
 
 ### Naming Convention
 
-- Uppercased
-- Use the `_` delimiter
+- Lowercase
+- Use the `-` delimiter
+- You can use the modifier `--` like in BEM
 - The first letter is about the type of the variable
 
 ### Examples
 
-- `C_PRIMARY` : Primary color
-- `C_SECONDARY_LIGHT` : Secondary color, lighter
-- `F_PRIMARY_BOLD` : Primary font with bold weight
-- `S_LINEHEIGHT` : Default line-height value
+- `c-primary` : Primary color
+- `c-secondary--light` : Secondary color, lighter
+- `f-primary--light` : Primary font with bold weight
+- `s-lineheight` : Default line-height value
 
 ## Comments
 
@@ -274,13 +277,13 @@ Place media queries as close to their relevant rule sets whenever possible. Don'
 
 ```
 .element { ... }
-.element_avatar { ... }
-.element__selected { ... }
+.element--selected { ... }
+.element__avatar { ... }
 
 @media (min-width: 480px) {
 	.element { ...}
-	.element_avatar { ... }
-	.element__selected { ... }
+	.element--selected { ... }
+	.element__avatar { ... }
 }
 ```
 
