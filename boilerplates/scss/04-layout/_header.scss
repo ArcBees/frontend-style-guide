@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    flex-direction: column-reverse;
+
+    &__search {
+        position: relative;
+
+        &__input {
+            font-size: 1.3rem;
+
+            border: 1px solid $c-neutral--light;
+            border-radius: 20px;
+            padding: .9em 0 .7em 3em;
+
+            box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, .4);
+        }
+
+        &__button {
+            background-color: transparent;
+            color: $c-primary;
+
+            border: 0;
+
+            position: absolute;
+            top: .5em;
+            left: .75em;
+        }
+    }
+}

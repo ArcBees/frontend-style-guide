@@ -1,0 +1,26 @@
+html {
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a {
+    color: $c-text;
+    text-decoration: none;
+
+    @include on-event {
+        text-decoration: underline;
+
+        cursor: pointer;
+    }
+}
+
+p {
+    line-height: 1.4;
+
+    margin-top: 0;
+}

@@ -1,0 +1,11 @@
+.button {
+    background-color: $c-primary;
+    color: $c-text--light;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 90%;
+
+    display: inline-block;
+    padding: .75em 4em;
+    border-radius: 50px;
+}
