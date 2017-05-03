@@ -1,0 +1,19 @@
+.input-styled {
+    padding: 1em;
+
+    &__input {
+        border: 1px solid #000;
+
+        padding-left: 3em;
+
+        position: relative;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 1em;
+
+        transform: translateY(-50%);
+    }
+}

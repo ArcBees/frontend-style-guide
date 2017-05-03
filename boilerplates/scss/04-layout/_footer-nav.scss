@@ -1,0 +1,26 @@
+.footer-nav {
+    padding: 0;
+    margin: 0;
+
+    position: relative;
+
+    &__list {
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        list-style-type: none;
+
+        &--meta {
+            &::after {
+                content: "|";
+
+                display: block;
+                padding: 0 2rem;
+            }
+        }
+    }
+}

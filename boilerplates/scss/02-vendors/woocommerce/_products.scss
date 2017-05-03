@@ -1,0 +1,24 @@
+.products {
+    margin: 0 -1% 1em;
+    min-height: 150px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    position: relative;
+
+    &::before,
+    &::after {
+        display: none;
+    }
+
+    .product {
+        width: 100%;
+        margin: 0 1% 1em;
+        border: 1px solid $c-neutral--light;
+
+        flex: 0 0 100%;
+        float: none;
+    }
+}

@@ -1,0 +1,30 @@
+.main-nav {
+    padding: 0;
+    margin: 0;
+
+    position: relative;
+
+    &__list {
+        margin: 0;
+        padding: 0 3rem;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        list-style-type: none;
+    }
+
+    &__item {
+        margin: 0 .5rem;
+
+        &__link {
+            color: $c-primary;
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+
+            margin-right: 1em;
+        }
+    }
+}

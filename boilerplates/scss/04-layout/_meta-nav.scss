@@ -1,0 +1,47 @@
+.meta-nav {
+    background-color: $c-primary;
+    text-align: right;
+
+    &__list {
+        margin: 0;
+
+        float: right;
+    }
+
+    &__item {
+        display: block;
+        float: left;
+
+        list-style-type: none;
+
+        &__link {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            line-height: 3.5rem;
+            color: #fff;
+
+            display: inline-block;
+            vertical-align: bottom;
+            padding: 0 1.5rem;
+
+            position: relative;
+
+            &::after {
+                content: "";
+
+                background-color: #fff;
+
+                display: block;
+                width: 100%;
+                height: 3px;
+
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+
+                transition: bottom .2s;
+            }
+        }
+    }
+}

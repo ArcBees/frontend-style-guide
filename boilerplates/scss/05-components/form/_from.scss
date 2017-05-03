@@ -1,0 +1,10 @@
+@import "input-styled";
+
+.form {
+    padding: 2em 0;
+
+    &__label {
+        text-transform: uppercase;
+        font-size: 80%;
+    }
+}

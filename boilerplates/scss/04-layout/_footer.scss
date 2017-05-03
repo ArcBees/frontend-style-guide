@@ -1,0 +1,29 @@
+.footer {
+    font-size: 1.2rem;
+
+    &__top {
+        border-bottom: 1px solid $c-neutral;
+    }
+
+    &__middle {
+        padding: 0 3rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__item {
+            display: inline-block;
+
+            list-style-type: none;
+        }
+    }
+
+    &__bottom {
+        background-color: $c-primary;
+        color: #eee;
+        font-size: 1.1rem;
+
+        padding: 1em 3rem;
+    }
+}

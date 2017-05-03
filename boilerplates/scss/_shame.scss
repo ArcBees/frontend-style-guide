@@ -1,0 +1,11 @@
+// -----------------------------------------------------------------------------
+// This file contains hotfixs and hacks that you know deserve a better solution
+// Don't forget to add comments, so we can remember why this code is bad!
+// -----------------------------------------------------------------------------
+
+// Fix a section that, in some cases, need to remove the margin below it
+// Should be a --modifier applied to the element below it!?
+
+.force-no-bottom {
+    margin-bottom: -3em;
+}

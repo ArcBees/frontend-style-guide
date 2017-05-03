@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+.clearfix::after {
+    content: "";
+
+    display: table;
+    clear: both;
+}
+
+.is-left {
+    text-align: left !important;
+}
+
+.is-centered {
+    text-align: center !important;
+}
+
+.is-right {
+    text-align: right !important;
+}
